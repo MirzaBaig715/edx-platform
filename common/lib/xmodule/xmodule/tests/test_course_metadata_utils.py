@@ -161,11 +161,11 @@ class CourseMetadataUtilsTestCase(TestCase):
                 TestScenario((DEFAULT_START_DATE, None), True),
             ]),
             FunctionTest(may_certify_for_course, [
-                TestScenario(('early_with_info', True, True), True),
-                TestScenario(('early_no_info', False, False), True),
-                TestScenario(('end', True, False), True),
-                TestScenario(('end', False, True), True),
-                TestScenario(('end', False, False), False),
+                TestScenario(('early_with_info', True, True, self.html_course.id), True),
+                TestScenario(('early_no_info', False, False, self.html_course.id), True),
+                TestScenario(('end', True, False, self.html_course.id), True),
+                TestScenario(('end', False, True, self.html_course.id), True),
+                TestScenario(('end', False, False, self.html_course.id), False),
             ]),
         ]
 

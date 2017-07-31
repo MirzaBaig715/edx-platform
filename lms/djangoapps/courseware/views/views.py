@@ -939,6 +939,15 @@ def _get_cert_data(student, course, course_key, is_active, enrollment_mode):
 
     cert_downloadable_status = certs_api.certificate_downloadable_status(student, course_key)
 
+    if cert_downloadable_status['is_unavailable']:
+        return CertData(
+            CertificateStatuses.unavailable,
+            _('Congratulations, you qualified for a certificate!'),
+            _('You can keep working for a higher grade.'),
+            download_url=None,
+            cert_web_view_url=None
+        )
+
     if cert_downloadable_status['is_downloadable']:
         cert_status = CertificateStatuses.downloadable
         title = _('Your certificate is available')
