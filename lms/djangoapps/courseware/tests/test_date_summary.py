@@ -171,12 +171,12 @@ class CourseDateSummaryTest(SharedModuleStoreTestCase):
 
     @ddt.data(
         # Course not started
-        ({}, (CourseStartDate, TodaysDate, CourseEndDate, VerifiedUpgradeDeadlineDate)),
+        ({}, (CourseStartDate, TodaysDate, CourseEndDate)),
         # Course active
-        ({'days_till_start': -1}, (TodaysDate, CourseEndDate, VerifiedUpgradeDeadlineDate)),
+        ({'days_till_start': -1}, (TodaysDate, CourseEndDate)),
         # Course ended
         ({'days_till_start': -10, 'days_till_end': -5},
-         (TodaysDate, CourseEndDate, VerifiedUpgradeDeadlineDate)),
+         (TodaysDate, CourseEndDate)),
     )
     @ddt.unpack
     def test_enabled_block_types_without_enrollment(self, course_kwargs, expected_blocks):
