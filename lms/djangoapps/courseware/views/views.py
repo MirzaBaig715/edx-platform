@@ -56,6 +56,7 @@ from django.views.decorators.csrf import ensure_csrf_cookie
 from django.views.decorators.http import require_GET, require_http_methods, require_POST
 from django.views.generic import View
 from edxmako.shortcuts import marketing_link, render_to_response, render_to_string
+from enrollment.api import add_enrollment
 from eventtracking import tracker
 from ipware.ip import get_ip
 from lms.djangoapps.ccx.custom_exception import CCXLocatorValidationException
@@ -448,7 +449,7 @@ class CourseTabView(EdxFragmentView):
                 request,
                 Text(_('You must be enrolled in the course to see course content. {enroll_link}')).format(
                     enroll_link=enroll_link
-                    )
+                )
             )
 
     @staticmethod
