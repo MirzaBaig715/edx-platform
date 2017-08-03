@@ -2303,7 +2303,7 @@ CREATE TABLE `email_marketing_emailmarketingconfiguration` (
   `sailthru_new_user_list` varchar(48) NOT NULL,
   `sailthru_retry_interval` int(11) NOT NULL,
   `sailthru_max_retries` int(11) NOT NULL,
-  `sailthru_activation_template` varchar(20) NOT NULL,
+  `sailthru_welcome_template` varchar(20) NOT NULL,
   `changed_by_id` int(11) DEFAULT NULL,
   `sailthru_abandoned_cart_delay` int(11) NOT NULL,
   `sailthru_abandoned_cart_template` varchar(20) NOT NULL,
